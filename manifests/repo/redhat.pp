@@ -4,10 +4,10 @@ class mariadb::repo::redhat {
   include ::mariadb
 
   yumrepo { 'mariadb':
-    baseurl  => "${::mariadb::mirror}/${::mariadb::version}/rhel\$releasever-amd64/",
+    baseurl  => "https://archive.mariadb.org/mariadb-${::mariadb::version}/yum/centos$releasever-amd64/",
     enabled  => '1',
     gpgcheck => '1',
-    gpgkey   => "${mirror}/RPM-GPG-KEY-MariaDB",
+    gpgkey   => "https://archive.mariadb.org/PublicKey",
     descr    => 'MariaDB Yum Repository',
   }
 
